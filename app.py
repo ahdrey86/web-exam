@@ -1491,9 +1491,11 @@ def delete_review(review_id):
     else:
         return redirect(url_for('my_reviews'))
 
-if __name__ == '__main__':
-    # Принудительная инициализация базы данных при запуске
+ import os
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=False)
     with app.app_context():
+        
         init_db()
     
     print("=" * 60)
